@@ -1,25 +1,25 @@
 import dotenv from "dotenv";
 dotenv.config();
-
-// const ARBITRUM_RPC_URL = process.env.ARB_RPC_URL;
-// const BASE_RPC_URL = process.env.BASE_RPC_URL;
-
-
-// export const RPC_CONFIGS = {
-//   42161: ARBITRUM_RPC_URL,
-//   8453: BASE_RPC_URL,
-// };
-
-// export const CHAIN_SLUGS = {
-//   42161: "arbitrum-mainnet",
-//   8453: "base-mainnet",
-// };
+const ZERO_EX_API_KEY = process.env.ZERO_EX_API_KEY;
+const ONE_INCH_API_KEY = process.env.ONE_INCH_API_KEY;
+export const ETH_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 export const CHAINS = {
   42161: { name: "arbitrum-mainnet", rpcUrl: process.env.ARB_RPC_URL },
   8453: { name: "base-mainnet", rpcUrl: process.env.BASE_RPC_URL },
 };
+export const MAX_RETRIES = 3; 
+export const ZERO_EX_PRICE_URL = "https://api.0x.org/swap/permit2/price?";
 
+export const ZERO_EX_API_HEADER = {
+  "Content-Type": "application/json",
+  "0x-api-key": `${ZERO_EX_API_KEY}`,
+  "0x-version": "v2",
+};
 
+export const ONE_INCH_QUOTE_URL ="https://api.1inch.dev/swap/v6.0/{chain}/quote?";
+export const ONE_INCH_HEADER = { Authorization: `Bearer ${ONE_INCH_API_KEY}` };
+export const ONE_INCH_BALANCE_URL = "https://api.1inch.dev/balance/v1.2";
+export const ONE_INCH_CROSS_CHAIN_URL="https://api.1inch.dev/fusion-plus/quoter/v1.0/quote/receive?"
 
 export const ERC20_ABI = [
   "function balanceOf(address owner) view returns (uint256)",
